@@ -8,10 +8,9 @@
 #include <unistd.h>
 
 // "Instance".
-/*  To explain, this works by chessing compilation in C.
-    The compiler does not need to know what "queue_instance_t" is to know that "queue_t" is a valid type, at least at first.
-    This is done via forward declaration, meaning the compiler knows "queue_t" exists but not its complete definition.
-    When the header file is included via the preprocessor, the compiler gains access to the full definition of "queue_t".
+/*  To explain, the compiler does not need to know what "queue_instance_t" is to know that "queue_t" is a valid type, at least at first.
+    This is done via forward declaration, meaning the compiler knows "queue_instance_t" exists but not its complete definition.
+    When the header file is included in the source file containing the definition for "queue_instance_t", it now has access.
     This allows the compiler to understand "queue_t" in its entirety, thus correct compilation.
 */
 typedef struct queue_instance_t queue_t; // https://stackoverflow.com/questions/750178/is-it-a-good-idea-to-typedef-pointers
